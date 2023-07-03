@@ -88,8 +88,8 @@ export default function Home() {
         </p>
         <span className="d-flex gap-3 mt-2">
           <Button variant="primary text-light">Our Services</Button>
-          <Button variant="secondary" onClick={handleQuote}>
-            Suggest app
+          <Button variant="secondary">
+            <a style={{textDecoration:'none', color:'#fff'}} href="https://expo.dev/artifacts/eas/4CbzoV4cqE55abdAAG2Dua.apk">Download Surplus Food</a>
           </Button>
           {/* ${description.icon} */}
         </span>
@@ -99,6 +99,7 @@ export default function Home() {
       </div>
       <span className="d-flex justify-content-center mt-3">
         <Button
+        disabled
           variant="secondary text-light"
           onClick={() => navigate("/ideas")}
         >

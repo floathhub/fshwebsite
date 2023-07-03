@@ -92,7 +92,7 @@ const SideBar = ({ show, off }) => {
           style={{ minHeight: "3em" }}
         >
           <a
-            href="#"
+            href="https://wa.me/message/NSIQY7RHQ2W4C1"
             style={{
               textDecoration: "none",
               color: "#fff",
@@ -100,23 +100,6 @@ const SideBar = ({ show, off }) => {
             }}
           >
             Start your career in tech
-          </a>
-        </li>
-        <li
-          className="d-flex w-100 text-center justify-content-center align-items-center"
-          style={{ minHeight: "3em" }}
-        >
-          <a
-          
-            onClick={()=>navigate('/ideas')}
-            style={{
-              cursor:'pointer',
-              textDecoration: "none",
-              color: "#fff",
-              fontFamily: "Montserrat",
-            }}
-          >
-            See suggested app ideas
           </a>
         </li>
 
