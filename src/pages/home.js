@@ -10,35 +10,44 @@ import {
   Form,
 } from "react-bootstrap";
 
-import { Formik } from "formik";
-import * as yup from "yup";
-import style from "./css/home.module.css";
-import TopBar from "../components/topBar";
-import homeBg from "../assets/images/home-image.png";
-import { serviceDescriptions } from "../assets/contents";
-import SideBar from "../components/sideBar";
+import homeVid from "../assets/videos/homeBgVid.webm";
+import logo from "../assets/images/floatlogo.png";
+import toggler from "../assets/icons/toggler.png"
+import webIcon from "../assets/icons/webIcon.png";
+import appIcon from "../assets/icons/googlePlayIcon.png";
+import softIcon from "../assets/icons/softwareIcon.png";
+import graphIcon from "../assets/icons/designIcon.png";
+import homeBg from '../assets/images/home-image.png'
+
 import { postQuotes } from "../controllers/requests";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../store/slices/authSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./css/home.css";
 
 export default function Home() {
   const navigate = useNavigate();
-  const initialValues = {
-    userName: "",
-    title: "",
-    description: "",
-    email: "",
-    phoneNumber: "",
-  };
 
-  const userSchema = yup.object().shape({
-    userName: yup.string().required("Enter your name"),
-    title: yup.string().required("Enter title"),
-    description: yup.string().required("describe your project"),
-    email: yup.string().required("Enter your email"),
-  });
+  const services = [
+    {
+      icon: webIcon,
+      title: "Business Websites",
+    },
+    {
+      icon: appIcon,
+      title: "Mobile Application",
+    },
+    {
+      icon: softIcon,
+      title: "Software Solutions",
+    },
+    {
+      icon: graphIcon,
+      title: "Graphics Design",
+    },
+  ];
+
   const [nav, setNav] = useState(false);
   const [quoteModal, setQuoteModal] = useState(false);
   const [quoteSucModal, setQuoteSucModal] = useState(false);
@@ -63,311 +72,102 @@ export default function Home() {
   };
 
   return (
-    <Container fluid className={`${style.container} p-0 pt-5 min-vh-100 w-100`}>
-      <TopBar toggleMenu={handleMenu} />
-      <SideBar show={nav} off={handleMenu} />
-      <div
-        className={`w-100 mt-4 px-4 py-3`}
-        style={{ fontFamily: "Montserrat", marginTop: 30 }}
-      >
-        <h3
-          className="mt-4"
-          style={{
-            fontFamily: "Montserrat",
-            fontWeight: "700",
-            fontSize: "1.5em",
-            lineHeight: "1.3em",
-          }}
+    <div className="w-100">
+      <div className="navbar sticky-top bg-light shadow-sm p-3 px-4">
+        <img src={logo} height="50em" />
+        <img className="toggleBurger" src={toggler} height="15em" />
+      </div>
+
+      <div className="content" style={{ height: 400 }}>
+        <div className="video-container min-vh-75">
+          <video autoPlay loop muted className="background-video">
+            <source src={homeVid} type="video/mp4" />
+            {/* Add additional source elements for different video formats if necessary */}
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div
+          className="overlay d-flex flex-column justify-content-center px-4"
+          style={{ height: 500 }}
         >
-          Driving Innovation <br /> through Cutting-Edge <br /> Software
-          Solutions.
-        </h3>
-        <p className="mt-2">
-          Our approach is simple, flexible and easy to use. <br />
-          we know what you need and we know <br /> how to get it done.
-        </p>
-        <span className="d-flex gap-3 mt-2">
-          <Button variant="primary text-light">Our Services</Button>
-          <Button variant="secondary">
-            <a style={{textDecoration:'none', color:'#fff'}} href="https://expo.dev/artifacts/eas/4CbzoV4cqE55abdAAG2Dua.apk">Download Surplus Food</a>
+          <h1 style={{ fontFamily: "titleFont" }}>
+            Innovative Solution For <br /> Every Business Need.
+          </h1>
+          <p>
+            Get custom made solutions that <br /> effectively solves your <br />{" "}
+            business need.
+          </p>
+          <Button style={{ maxWidth: "10em" }}>
+            <Link
+              to="https://wa.me/message/NSIQY7RHQ2W4C1"
+              className="text-secondary"
+              style={{ textDecoration: "none" }}
+            >
+              Contact us
+            </Link>
           </Button>
-          {/* ${description.icon} */}
-        </span>
+        </div>
       </div>
-      <div className="d-flex justify-content-center mt-5 w-100">
-        <img src={homeBg} alt="home image" height={469} />
+
+      <div className="w-100 px-3 text-center mt-5">
+        <h3 style={{ fontFamily: "titleFontMd" }}>
+          We take out the bottle necks <br /> so you can focus on other <br />{" "}
+          business matter.
+        </h3>
       </div>
-      <span className="d-flex justify-content-center mt-3">
-        <Button
-        disabled
-          variant="secondary text-light"
-          onClick={() => navigate("/ideas")}
-        >
-          {" "}
-          See Suggested App Ideas
-        </Button>
-      </span>
-      <div
-        className="d-flex flex-column mt-3 w-100 px-3 gap-3"
-        style={{ backgroundColor: "#F1F8F9" }}
-      >
-        {serviceDescriptions.map((description, index) => (
-          <div key={index}>
-            <i className="bi bi-alarm"></i>
-            <p>{description.title}</p>
-            <p>{description.descriptions}</p>
+
+      <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-4 mt-4 p-0 m-0">
+        {services.map((service) => (
+          <div
+            className="border d-flex flex-column justify-content-center gap-2 m-0 p-0 bor"
+            style={{ minWidth: "170px", minHeight: "200px" }}
+          >
+            <div>
+              <img src={service.icon} height={"100em"} alt="web icon" />
+            </div>
+            <div>
+              <p style={{ wordBreak: "break-all", wordWrap: "break-word" }}>
+                {service.title}
+              </p>
+            </div>
           </div>
         ))}
       </div>
 
-      <div
-        className={`w-100 mt-4 px-4 py-3`}
-        style={{ fontFamily: "Montserrat", marginTop: 30 }}
-      >
-        <h3
-          className="mt-4 text-secondary"
-          style={{
-            fontFamily: "Montserrat",
-            fontWeight: "700",
-            fontSize: "1.5em",
-            lineHeight: "1.3em",
-          }}
-        >
-          Your business needs to grow and that is why we are here.
-        </h3>
-        <p>
-          Bringing years of IT experience to all of your business need in the
-          most simplest way you can think of.
-        </p>
-        <hr />
-        <p className="mt-5" style={{ fontWeight: "bold" }}>
-          24hr support on all of our products
-        </p>
-        <p>
-          Bringing years of IT experience to all of your business need in the
-          most simplest way you can think of.
-        </p>
-      </div>
-
-      <div
-        className="d-flex flex-column mt-3 w-100 px-3 py-3 gap-3 text-light bg-secondary"
-        style={{ height: "35rem" }}
-      >
-        <h3
-          className="mt-4"
-          style={{
-            fontFamily: "Montserrat",
-            fontWeight: "700",
-            fontSize: "1.5em",
-            lineHeight: "1.3em",
-          }}
-        >
-          Your business needs <br /> to grow and that is why <br /> we are here.
-        </h3>
-        <p>
-          Bringing years of IT experience to all of your business need in the
-          most simplest way you can think of.
-        </p>
-        <Button variant="light" style={{ maxWidth: "9em" }}>
-          Contact us
-        </Button>
-        <div className="w-100 gap-2 d-flex mt-5 justify-content-center align-items-center">
-          <i className="bi bi-google-play" style={{ fontSize: "2em" }}></i>
-          <p className="p-0 m-0">Download our Apps</p>
+      <div className="detailSection justify-content-center align-items-center w-100 px-2 gap-4 mt-5 p-0 m-0">
+       <div className="w-50 d-flex flex-column align-items-end px-3">
+       <h4 style={{ fontFamily: "titleFontMd" }}>
+            We do not beat around the bush with <br/> technical jargons, we simply identify <br/>
+            your business problem <br/> & we fix it.
+          </h4>
+          <ul className="mt-4">
+            <li>Identify your need.</li>
+            <li>Carry out extensive research.</li>
+            <li>Provide scalable solutions.</li>
+            <li>Help you make more profit</li>
+            <li>Offer continuous business support</li>
+          </ul>
+       </div>
+        <div className="w-50 d-flex align-items-center">
+        <img src={homeBg} alt="home image" height={350} />
         </div>
       </div>
 
-      <div className="w-100 d-flex justify-content-center">
-        <p
-          className="text-center w-75 mt-5"
-          style={{ fontSize: "1rem", fontWeight: "700" }}
-        >
-          We are your trusted vendor for all your sofware solutions.
-        </p>
-      </div>
-
-      <div className="w-100 d-flex flex-column justify-content-center align-items-center">
-        <p className="text-center mb-0">What customers are saying</p>
-        <div className="d-flex gap-2 mt-2">
-          <Card
-            className="shadow-sm text-light"
-            style={{ minWidth: "10rem", minHeight: "10rem" }}
-          >
-            <p>ok</p>
-          </Card>
-
-          <Card
-            className="shadow-sm text-light"
-            style={{ minWidth: "10rem", minHeight: "10rem" }}
-          >
-            <p>ok</p>
-          </Card>
+      <div className="detailSectionMobile  flex-column w-100 text-center justify-content-center px-2 py-4 mt-5 p-0 m-0">
+        <p style={{fontFamily:'textFont'}}>You can trust our service</p>
+        <h3 style={{ fontFamily: "titleFontMd" }}>
+          Quality service delivery is <br/> our number one <br/> priority
+        </h3>
+        <div>
+        <img src={homeBg} alt="home image" height={350} />
         </div>
+       
       </div>
-      <Modal show={quoteModal} centered backdrop="static">
-        <Modal.Header className="bg-secondary text-light">
-          <Col></Col>
-          <Col className="d-flex justify-content-end">
-            <i
-              className="bi bi-x-circle"
-              onClick={() => setQuoteModal(false)}
-              style={{ cursor: "pointer", fontSize: "0.7em" }}
-            ></i>
-          </Col>
-        </Modal.Header>
-        <Modal.Body>
-          <p className="text-danger px-3" style={{ fontSize: "0.7em" }}>
-            <strong>Heads up! :</strong>{" "}
-            <i className="text-secondary">
-              Do well to put your contact information, your idea might <br /> just be
-              so good to intrest an investor, you never know. Once you submit,
-              go to app sugestions page to see your contribution.
-            </i>
-            <i
-              className="bi bi-emoji-smile-fill  m-2 text-secondary"
-              style={{ color: "#E79C3D" }}
-            ></i>
-          </p>
-          <hr />
-          <Formik
-            initialValues={initialValues}
-            validateOnBlur={true}
-            validationSchema={userSchema}
-            onSubmit={(val) => postUserQuote(val)}
-          >
-            {({ handleSubmit, handleChange, errors }) => (
-              <form
-                onSubmit={handleSubmit}
-                className="d-flex flex-column gap-3"
-                style={{ fontFamily: "Montserrat" }}
-              >
-                <Form.Group
-                  className="border border-1 rounded px-1"
-                  style={{ maxWidth: "16em", zIndex: 50 }}
-                >
-                  <Form.Control
-                    name="userName"
-                    id="userName"
-                    onChange={handleChange}
-                    placeholder="Your name"
-                    className="border border-0 px-2 py-1 bg-transparent"
-                    style={{ outline: "none" }}
-                  />
-                </Form.Group>
 
-                <Form.Group
-                  className="border border-1 rounded px-1"
-                  style={{ maxWidth: "16em" }}
-                >
-                  <Form.Control
-                    onChange={handleChange}
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    className="border border-0 px-2 py-1 bg-transparent"
-                    style={{ outline: "none" }}
-                  />
-                </Form.Group>
-
-                <Form.Group
-                  className="border border-1 rounded px-1"
-                  style={{ maxWidth: "16em", zIndex: 50 }}
-                >
-                  <Form.Control
-                    name="title"
-                    id="userName"
-                    onChange={handleChange}
-                    placeholder="Your app title"
-                    className="border border-0 px-2 py-1 bg-transparent"
-                    style={{ outline: "none" }}
-                  />
-                </Form.Group>
-
-                <Form.Group className="border border-1 rounded px-1 w-100">
-                  <textarea
-                    onChange={handleChange}
-                    name="description"
-                    placeholder="Briefly describe what your web app or mobile app should do"
-                    className="border w-100 border-0 px-2 py-1 bg-transparent"
-                    style={{ outline: "none", minHeight: "15rem" }}
-                  />
-                </Form.Group>
-
-                <Form.Group
-                  className="border border-1 rounded px-1"
-                  style={{ maxWidth: "16em", zIndex: 50 }}
-                >
-                  <Form.Control
-                  type="number"
-                    name="phoneNumber"
-                    id="phoneNumber"
-                    onChange={handleChange}
-                    placeholder="Phone number (optional)"
-                    className="border border-0 px-2 py-1 bg-transparent"
-                    style={{ outline: "none" }}
-                  />
-                </Form.Group>
-
-                <span className="d-flex gap-2 mt-2">
-                  <Button
-                    disabled={Object.keys(errors).length > 0}
-                    variant="secondary text-light"
-                    type="submit"
-                    onClick={() => handleSubmit}
-                  >
-                    Send Quote
-                  </Button>
-                  <Button
-                    variant="light border"
-                    onClick={() => setQuoteModal(false)}
-                  >
-                    Cancel
-                  </Button>
-                </span>
-              </form>
-            )}
-          </Formik>
-        </Modal.Body>
-      </Modal>
-
-      <Modal show={quoteSucModal}  centered backdrop="static">
-        <Modal.Header className="bg-secondary text-light">
-          <Col>Success!!  </Col>
-          <Col className="d-flex justify-content-end">
-            <i
-              className="bi bi-x-circle"
-              onClick={() => setQuoteSucModal(false)}
-              style={{ cursor: "pointer", fontSize: "0.7em" }}
-            ></i>
-          </Col>
-        </Modal.Header>
-        <Modal.Body >
-          <div className="d-flex flex-column align-items-center">
-          <p className="text-secondary text-center px-3" style={{ fontSize: "0.9em" }}>
-            Thank you for your contribution, do well to talk to us if you ever need a
-            website for your business or you need to build a mobile application.
-          </p>
-          <i
-            className="bi bi-emoji-smile-fill text-secondary"
-            style={{ color: "#E79C3D", fontSize:'2rem' }}
-          ></i>
-          </div>
-          
-          <hr />
-          <div className="d-flex justify-content-center w-100 align-items-center">
-          
-          <p className="px-2 m-0"> <i className="bi bi-telephone-fill text-primary"></i> 08166064166</p> |
-          
-          <p className="px-2 m-0 ml-2"> <i className="bi bi-envelope-fill text-primary ml-2"></i>{' '}floathhub@gmail.com</p>
-          </div>
-        </Modal.Body>
-      </Modal>
-      <div
-        className="d-flex mt-3 justify-content-center text-light align-items-center"
-        style={{ backgroundColor: "#192252", minHeight: "5rem" }}
-      >
-        All Right Reserved Floath Solution Hub 2023
+      <div className="footer w-100 text-center text-align-center py-3 bg-secondary text-light">
+        <p className="p-0 m-0">Floath Solution Hub All Right Reserved</p>
+        <p className="p-0 m-0">(+234)8166064166</p>
       </div>
-    </Container>
+    </div>
   );
 }
