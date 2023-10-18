@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -10,14 +10,18 @@ import {
   Form,
 } from "react-bootstrap";
 
+import styles from "./css/home.module.css";
+
 import homeVid from "../assets/videos/homeBgVid.webm";
 import logo from "../assets/images/floatlogo.png";
-import toggler from "../assets/icons/toggler.png"
+import toggler from "../assets/icons/toggler.png";
 import webIcon from "../assets/icons/webIcon.png";
 import appIcon from "../assets/icons/googlePlayIcon.png";
 import softIcon from "../assets/icons/softwareIcon.png";
 import graphIcon from "../assets/icons/designIcon.png";
-import homeBg from '../assets/images/home-image.png'
+import homeBg from "../assets/images/home-image.png";
+
+import loaderImage from "../assets/images/fshloader.gif";
 
 import { postQuotes } from "../controllers/requests";
 import { useSelector } from "react-redux";
@@ -52,6 +56,7 @@ export default function Home() {
   const [quoteModal, setQuoteModal] = useState(false);
   const [quoteSucModal, setQuoteSucModal] = useState(false);
   const loggedInUser = useSelector((state) => state.auth.userInfo);
+  const [showLoader, setShowLoader] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -70,12 +75,42 @@ export default function Home() {
       setQuoteSucModal(true);
     }
   };
+  const [timer, setTimer] = useState(5);
+
+  const handleLoader = () => {
+    const countDown = setInterval(() => {
+      if (timer > 0) {
+        setTimer(timer - 1);
+      } else {
+        clearInterval(countDown);
+        setShowLoader(false);
+      }
+    }, 1000);
+  };
+
+  useEffect(() => {
+    handleLoader();
+  });
 
   return (
     <div className="w-100">
-      <div className="navbar sticky-top bg-light shadow-sm p-3 px-4">
-        <img src={logo} height="50em" />
-        <img className="toggleBurger" src={toggler} height="15em" />
+      <div className={`${ showLoader? "loader" : 'offLoader'} w-100`} style={{zIndex:100}}>
+      <img
+          
+          src={loaderImage}
+          height="150em"
+          alt="toggle"
+          style={{zIndex:150}}
+        />
+      </div>
+      <div className="navbar sticky-top bg-light shadow-sm p-3 px-4" style={{zIndex:50}}>
+        <img src={logo} height="50em" alt="logo" />
+        <img
+          className="toggleBurger"
+          src={toggler}
+          height="15em"
+          alt="toggle"
+        />
       </div>
 
       <div className="content" style={{ height: 400 }}>
@@ -108,7 +143,6 @@ export default function Home() {
           </Button>
         </div>
       </div>
-
       <div className="w-100 px-3 text-center mt-5">
         <h3 style={{ fontFamily: "titleFontMd" }}>
           We take out the bottle necks <br /> so you can focus on other <br />{" "}
@@ -135,10 +169,11 @@ export default function Home() {
       </div>
 
       <div className="detailSection justify-content-center align-items-center w-100 px-2 gap-4 mt-5 p-0 m-0">
-       <div className="w-50 d-flex flex-column align-items-end px-3">
-       <h4 style={{ fontFamily: "titleFontMd" }}>
-            We do not beat around the bush with <br/> technical jargons, we simply identify <br/>
-            your business problem <br/> & we fix it.
+        <div className="w-50 d-flex flex-column align-items-end px-3">
+          <h4 style={{ fontFamily: "titleFontMd" }}>
+            We do not beat around the bush with <br /> technical jargons, we
+            simply identify <br />
+            your business problem <br /> & we fix it.
           </h4>
           <ul className="mt-4">
             <li>Identify your need.</li>
@@ -147,24 +182,23 @@ export default function Home() {
             <li>Help you make more profit</li>
             <li>Offer continuous business support</li>
           </ul>
-       </div>
+        </div>
         <div className="w-50 d-flex align-items-center">
-        <img src={homeBg} alt="home image" height={350} />
+          <img src={homeBg} alt="homeimage" height={350} />
         </div>
       </div>
 
       <div className="detailSectionMobile  flex-column w-100 text-center justify-content-center px-2 py-4 mt-5 p-0 m-0">
-        <p style={{fontFamily:'textFont'}}>You can trust our service</p>
+        <p style={{ fontFamily: "textFont" }}>You can trust our service</p>
         <h3 style={{ fontFamily: "titleFontMd" }}>
-          Quality service delivery is <br/> our number one <br/> priority
+          Quality service delivery is <br /> our number one <br /> priority
         </h3>
         <div>
-        <img src={homeBg} alt="home image" height={350} />
+          <img src={homeBg} alt="home image" height={350} />
         </div>
-       
       </div>
 
-      <div className="footer w-100 text-center text-align-center py-3 bg-secondary text-light">
+      <div className="footer w-100 text-center text-align-center py-3 bg-secondary mt-4 text-light">
         <p className="p-0 m-0">Floath Solution Hub All Right Reserved</p>
         <p className="p-0 m-0">(+234)8166064166</p>
       </div>

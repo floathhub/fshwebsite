@@ -7,6 +7,18 @@
 .toggler {
     display: none;
 }
+
+.loader{
+display: flex;
+position: absolute;
+top: 0;
+bottom: 0;
+min-height: 100vh;
+}
+
+.offLoader {
+    display: none;
+}
 @media screen and (max-width :768px){
 .container {
     max-width: 100%;
