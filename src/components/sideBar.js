@@ -4,7 +4,34 @@ import styles from "../pages/css/home.module.css";
 import { useNavigate } from "react-router-dom";
 
 const SideBar = ({ show, off }) => {
-  const navigate = useNavigate()
+  const guides = [
+    {
+      title: "Home",
+      icon: "",
+      path: "home",
+    },
+    {
+      title: "Services",
+      icon: "",
+      path: "services",
+    },
+    {
+      title: "Products",
+      icon: "",
+      path: "products",
+    },
+    {
+      title: "About",
+      icon: "",
+      path: "about",
+    },
+    {
+      title: "Career In Tech",
+      icon: "",
+      path: "career",
+    },
+  ];
+  const navigate = useNavigate();
   return (
     <div
       className={`${
@@ -20,92 +47,36 @@ const SideBar = ({ show, off }) => {
       </h1>
       <ul
         className="w-100 d-flex flex-column p-0 align-items-center mt-5"
-        style={{ listStyle: "none", fontSize:'0.8em' }}
+        style={{ listStyle: "none", fontFamily: "textFont" }}
       >
-        <li
-          className="d-flex w-100 text-center justify-content-center align-items-center"
-          style={{ minHeight: "3em" }}
-        >
-          <a
-            href="/"
-            style={{
-              textDecoration: "none",
-              color: "#fff",
-              fontFamily: "Montserrat",
+        {" "}
+        {guides.map((guide) => (
+          <li
+          onClick={()=>{
+            off()
             }}
+            className="d-flex w-100 text-center justify-content-center align-items-center"
+            style={{ minHeight: "3em" }}
           >
-            Home
-          </a>
-        </li>
-
-        <li
-          className="d-flex w-100 text-center justify-content-center align-items-center"
-          style={{ minHeight: "3em" }}
-        >
-          <a
-            href="#"
-            style={{
-              textDecoration: "none",
-              color: "#fff",
-              fontFamily: "Montserrat",
-            }}
-          >
-            Services
-          </a>
-        </li>
-
-        <li
-          className="d-flex w-100 text-center justify-content-center align-items-center"
-          style={{ minHeight: "3em" }}
-        >
-          <a
-            href="#"
-            style={{
-              textDecoration: "none",
-              color: "#fff",
-              fontFamily: "Montserrat",
-            }}
-          >
-            Products
-          </a>
-        </li>
-
-       
-        <li
-          className="d-flex w-100 text-center justify-content-center align-items-center"
-          style={{ minHeight: "3em" }}
-        >
-          <a
-            href="#"
-            style={{
-              textDecoration: "none",
-              color: "#fff",
-              fontFamily: "Montserrat",
-            }}
-          >
-            About us
-          </a>
-        </li>
-
-        <li
-          className="d-flex w-100 text-center justify-content-center align-items-center"
-          style={{ minHeight: "3em" }}
-        >
-          <a
-            href="https://wa.me/message/NSIQY7RHQ2W4C1"
-            style={{
-              textDecoration: "none",
-              color: "#fff",
-              fontFamily: "Montserrat",
-            }}
-          >
-            Start your career in tech
-          </a>
-        </li>
-
+            <a
+              href={guide.path}
+              style={{
+                textDecoration: "none",
+                color: "#fff",
+              }}
+            >
+              {guide.title}
+            </a>
+          </li>
+        ))}
       </ul>
       <div className="d-flex justify-content-center mt-4">
-        <Button style={{ maxWidth: "10em" }}>Contact us</Button>
+        <Button
+          variant="secondary"
+          style={{ maxWidth: "10em", fontFamily: "textFont" }}
+        >
+          Contact us
+        </Button>
       </div>
     </div>
   );

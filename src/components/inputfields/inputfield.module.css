@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    width: 80%;
+    height: 2.5em;
+    margin: 0px;
+    background-color:'#183B64';
+    border-radius: 3px;
+    border: 1px solid rgb(163, 163, 163);
+}

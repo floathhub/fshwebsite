@@ -12,3 +12,19 @@ $secondary : #192252;
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Ubuntu:wght@300;500;700&display=swap');
+
+
+@font-face {
+    font-family: titleFont;
+    src: url('./assets/fonts/FutuBd.ttf');
+}
+
+@font-face {
+    font-family: titleFontMd;
+    src: url('./assets/fonts/FutuMd.ttf');
+};
+
+@font-face {
+    font-family: textFont;
+    src: url('./assets/fonts/timesRomanReg.ttf');
+};

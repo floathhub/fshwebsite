@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 
 import styles from "./css/home.module.css";
+import SideBar from "../components/sideBar";
 
 import homeVid from "../assets/videos/homeBgVid.webm";
 import logo from "../assets/images/floatlogo.png";
@@ -29,9 +30,11 @@ import { useDispatch } from "react-redux";
 import { updateUser } from "../store/slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/home.css";
+import TopBar from "../components/topBar";
 
 export default function Home() {
   const navigate = useNavigate();
+  const [toggleSide,setToggleSide] = useState(false);
 
   const services = [
     {
@@ -57,6 +60,7 @@ export default function Home() {
   const [quoteSucModal, setQuoteSucModal] = useState(false);
   const loggedInUser = useSelector((state) => state.auth.userInfo);
   const [showLoader, setShowLoader] = useState(true);
+  const [stopLoader, setStopLoader] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -75,60 +79,46 @@ export default function Home() {
       setQuoteSucModal(true);
     }
   };
-  const [timer, setTimer] = useState(5);
+  const [timer, setTimer] = useState(2);
 
-  const handleLoader = () => {
-    const countDown = setInterval(() => {
-      if (timer > 0) {
-        setTimer(timer - 1);
-      } else {
-        clearInterval(countDown);
-        setShowLoader(false);
-      }
-    }, 1000);
-  };
+  // const handleLoader = () => {
+   
+  //     const countDown = setInterval(() => {
+  //       if (timer > 0) {
+  //         setTimer(timer - 1);
+  //       } else {
+  //         clearInterval(countDown);
+  //         setShowLoader(false);
+  //       }
+  //     }, 1000);
+  //   }
+  // ;
 
-  useEffect(() => {
-    handleLoader();
-  });
+  // useEffect(() => {
+  //   handleLoader();
+  // });
 
   return (
     <div className="w-100">
-      <div className={`${ showLoader? "loader" : 'offLoader'} w-100`} style={{zIndex:100}}>
-      <img
-          
-          src={loaderImage}
-          height="150em"
-          alt="toggle"
-          style={{zIndex:150}}
-        />
-      </div>
-      <div className="navbar sticky-top bg-light shadow-sm p-3 px-4" style={{zIndex:50}}>
+      {/* <div className="navbar sticky-top bg-light shadow-sm p-3 px-4" style={{zIndex:50}}>
         <img src={logo} height="50em" alt="logo" />
         <img
+        onClick={()=>setToggleSide(!toggleSide)}
           className="toggleBurger"
           src={toggler}
           height="15em"
           alt="toggle"
         />
-      </div>
+      </div> */}
 
-      <div className="content" style={{ height: 400 }}>
-        <div className="video-container min-vh-75">
-          <video autoPlay loop muted className="background-video">
-            <source src={homeVid} type="video/mp4" />
-            {/* Add additional source elements for different video formats if necessary */}
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div
-          className="overlay d-flex flex-column justify-content-center px-4"
-          style={{ height: 500 }}
-        >
-          <h1 style={{ fontFamily: "titleFont" }}>
-            Innovative Solution For <br /> Every Business Need.
+      <TopBar toggleMenu={()=>setToggleSide(!toggleSide)}/>
+      <SideBar show={toggleSide} off={()=>setToggleSide(!toggleSide)}/>
+
+      <div className={`${styles.sectone} text-light d-flex flex-column justify-content-center`}>
+      <h1 style={{ fontFamily: "titleFont" }}>
+            Innovative Solution <br /> For All of Your <br/> Business Need.
           </h1>
-          <p>
+          <p style={{ fontFamily: "textFont", fontWeight:'bolder' }}>
             Get custom made solutions that <br /> effectively solves your <br />{" "}
             business need.
           </p>
@@ -136,12 +126,11 @@ export default function Home() {
             <Link
               to="https://wa.me/message/NSIQY7RHQ2W4C1"
               className="text-secondary"
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none", fontFamily:"titleFont" }}
             >
               Contact us
             </Link>
           </Button>
-        </div>
       </div>
       <div className="w-100 px-3 text-center mt-5">
         <h3 style={{ fontFamily: "titleFontMd" }}>
@@ -154,13 +143,13 @@ export default function Home() {
         {services.map((service) => (
           <div
             className="border d-flex flex-column justify-content-center gap-2 m-0 p-0 bor"
-            style={{ minWidth: "170px", minHeight: "200px" }}
+            style={{ minWidth: "150px", minHeight: "180px" }}
           >
             <div>
               <img src={service.icon} height={"100em"} alt="web icon" />
             </div>
             <div>
-              <p style={{ wordBreak: "break-all", wordWrap: "break-word" }}>
+              <p className="" style={{ fontFamily: "textFont"}}>
                 {service.title}
               </p>
             </div>
@@ -194,7 +183,7 @@ export default function Home() {
           Quality service delivery is <br /> our number one <br /> priority
         </h3>
         <div>
-          <img src={homeBg} alt="home image" height={350} />
+          <img src={homeBg} alt="home image" height={350} width={250} />
         </div>
       </div>
 
