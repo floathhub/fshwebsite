@@ -17,7 +17,7 @@ export default function CareerPage() {
   alert('Call 08166064166 to Complete registration')
   }
   return (
-    <div className="w-100">
+    <div className="w-100 min-vh-100">
       <TopBar toggleMenu={() => setToggleSide(!toggleSide)} />
       <SideBar show={toggleSide} off={() => setToggleSide(!toggleSide)} />
       <div className={`${styles.section1} text-light text-center py-5`}>
@@ -37,6 +37,10 @@ export default function CareerPage() {
           <PrimaryButton action={handleAction} title={'Register'}/>
         
         </Form>
+      </div>
+
+      <div className="">
+
       </div>
     </div>
   );
