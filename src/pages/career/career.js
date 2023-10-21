@@ -3,9 +3,19 @@ import styles from "./career.module.css";
 import SideBar from "../../components/sideBar";
 import TopBar from "../../components/topBar";
 import InputField from "../../components/inputfields/input";
+import InputFieldPhone from "../../components/inputfields/inputNumber";
+import PrimaryButton from "../../components/buttons/primaryButton";
+import { Form } from "react-bootstrap";
 
 export default function CareerPage() {
   const [toggleSide, setToggleSide] = useState(false);
+  const handleUserInput=(userInput)=>{
+    console.log(userInput)
+  }
+
+  const handleAction = ()=>{
+  alert('Call 08166064166 to Complete registration')
+  }
   return (
     <div className="w-100">
       <TopBar toggleMenu={() => setToggleSide(!toggleSide)} />
@@ -18,12 +28,15 @@ export default function CareerPage() {
       </div>
 
       <div className="w-100 d-flex justify-content-center py-3">
-        <form className={`${styles.form} border d-flex flex-column py-3 justify-content-center align-items-center `} style={{width:"300px"}}>
-          <InputField title={'Full name'} />
-          <InputField />
-          <InputField />
-          <InputField />
-        </form>
+        <Form className={`${styles.form} border d-flex gap-2 flex-column py-3 justify-content-center align-items-center `} style={{width:"300px"}}>
+        
+          <InputField title={'Full name'} passInput={(e)=>handleUserInput(e)} />
+          <InputField title='Email' passInput={(e)=>handleUserInput(e)} />
+          <InputFieldPhone  passInput={(e)=>handleUserInput(e)}  title='Phone Number'/>
+          <InputField title='Course of Choice' passInput={(e)=>handleUserInput(e)} />
+          <PrimaryButton action={handleAction} title={'Register'}/>
+        
+        </Form>
       </div>
     </div>
   );
