@@ -67,7 +67,7 @@
     flex-wrap: nowrap;
 }
 
-.detailSection{
+.detailSection {
     display: flex;
     width: 100%;
     /* background-color: pink; */
@@ -75,25 +75,33 @@
     flex-wrap: nowrap;
 }
 
-.detailSectionMobile{
+.detailSectionMobile {
     display: none;
 
 }
 
-.pTitle{
+.productSectionMobile {
+    display: flex;
+    background-color: #ffffff;
+
+}
+
+.pTitle {
     justify-content: center;
     display: flex;
     flex-direction: column;
     background-color: red;
     padding-inline: 2%;
     width: 50%;
- }
-
- .points{
-   
 }
 
-.toggleBurger{
+.points {}
+
+.serviceSection {
+    flex-wrap: nowrap;
+}
+
+.toggleBurger {
     display: none;
 }
 
@@ -102,27 +110,33 @@
         flex-wrap: wrap;
     }
 
-    .toggleBurger{
+    .toggleBurger {
         display: flex;
     }
 
-    .detailSection{
+    .detailSection {
         display: none;
     }
 
-    .detailSection h4{
-       text-align: center;
-       background-color: red;
-       width: 100%;
+    .detailSection h4 {
+        text-align: center;
+        background-color: red;
+        width: 100%;
     }
 
-    .detailSectionMobile{
+    .detailSectionMobile {
         display: flex;
         background-color: #f8f8f8;
-    
+
     }
 
-    .points{
+    .productSectionMobile {
+        display: flex;
+        background-color: #ffffff;
+
+    }
+
+    .points {
         display: none;
     }
 }

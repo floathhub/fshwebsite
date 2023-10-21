@@ -34,9 +34,28 @@ import TopBar from "../components/topBar";
 
 export default function Home() {
   const navigate = useNavigate();
-  const [toggleSide,setToggleSide] = useState(false);
+  const [toggleSide, setToggleSide] = useState(false);
 
   const services = [
+    {
+      icon: webIcon,
+      title: "Business Websites",
+    },
+    {
+      icon: appIcon,
+      title: "Mobile Application",
+    },
+    {
+      icon: softIcon,
+      title: "Software Solutions",
+    },
+    {
+      icon: graphIcon,
+      title: "Graphics Design",
+    },
+  ];
+
+  const products = [
     {
       icon: webIcon,
       title: "Business Websites",
@@ -82,7 +101,7 @@ export default function Home() {
   // const [timer, setTimer] = useState(2);
 
   // const handleLoader = () => {
-   
+
   //     const countDown = setInterval(() => {
   //       if (timer > 0) {
   //         setTimer(timer - 1);
@@ -111,26 +130,28 @@ export default function Home() {
         />
       </div> */}
 
-      <TopBar toggleMenu={()=>setToggleSide(!toggleSide)}/>
-      <SideBar show={toggleSide} off={()=>setToggleSide(!toggleSide)}/>
+      <TopBar toggleMenu={() => setToggleSide(!toggleSide)} />
+      <SideBar show={toggleSide} off={() => setToggleSide(!toggleSide)} />
 
-      <div className={`${styles.sectone} text-light d-flex flex-column justify-content-center`}>
-      <h1 style={{ fontFamily: "titleFont" }}>
-            Innovative Solution <br /> For All of Your <br/> Business Need.
-          </h1>
-          <p style={{ fontFamily: "textFont", fontWeight:'bolder' }}>
-            Get custom made solutions that <br /> effectively solves your <br />{" "}
-            business need.
-          </p>
-          <Button style={{ maxWidth: "10em" }}>
-            <Link
-              to="https://wa.me/message/NSIQY7RHQ2W4C1"
-              className="text-secondary"
-              style={{ textDecoration: "none", fontFamily:"titleFont" }}
-            >
-              Contact us
-            </Link>
-          </Button>
+      <div
+        className={`${styles.sectone} text-light d-flex flex-column justify-content-center`}
+      >
+        <h1 style={{ fontFamily: "titleFont" }}>
+          Innovative Solution <br /> For All of Your <br /> Business Need.
+        </h1>
+        <p style={{ fontFamily: "textFont", fontWeight: "bolder" }}>
+          Get custom made solutions that <br /> effectively solves your <br />{" "}
+          business need.
+        </p>
+        <Button style={{ maxWidth: "10em" }}>
+          <Link
+            to="https://wa.me/message/NSIQY7RHQ2W4C1"
+            className="text-secondary"
+            style={{ textDecoration: "none", fontFamily: "titleFont" }}
+          >
+            Contact us
+          </Link>
+        </Button>
       </div>
       <div className="w-100 px-3 text-center mt-5">
         <h3 style={{ fontFamily: "titleFontMd" }}>
@@ -139,6 +160,12 @@ export default function Home() {
         </h3>
       </div>
 
+      <div className="w-100 d-flex justify-content-center text-center">
+        <hr className="w-50" />
+      </div>
+      <div className="w-100 px-3 text-center mt-4">
+        <h3 style={{ fontFamily: "titleFontMd" }}>Our Services</h3>
+      </div>
       <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-4 mt-4 p-0 m-0">
         {services.map((service) => (
           <div
@@ -149,7 +176,7 @@ export default function Home() {
               <img src={service.icon} height={"100em"} alt="web icon" />
             </div>
             <div>
-              <p className="" style={{ fontFamily: "textFont"}}>
+              <p className="" style={{ fontFamily: "textFont" }}>
                 {service.title}
               </p>
             </div>
@@ -185,6 +212,31 @@ export default function Home() {
         <div>
           <img src={homeBg} alt="home image" height={350} width={250} />
         </div>
+      </div>
+
+      <div className="productSectionMobile  flex-column w-100 text-center justify-content-center px-2 py-4 mt-5 p-0 m-0">
+        <h3 style={{ fontFamily: "titleFontMd" }}>Our Products</h3>
+        <p className="p-0 m-0" style={{ fontFamily: "textFont" }}>
+          Check out some of our products
+        </p>
+      </div>
+
+      <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-4 mt-2 p-0 m-0">
+        {products.map((service) => (
+          <div
+            className="border d-flex flex-column justify-content-center gap-2 m-0 p-0 bor"
+            style={{ minWidth: "150px", minHeight: "180px" }}
+          >
+            <div>
+              <img src={service.icon} height={"100em"} alt="web icon" />
+            </div>
+            <div>
+              <p className="" style={{ fontFamily: "textFont" }}>
+                {service.title}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="footer w-100 text-center text-align-center py-3 bg-secondary mt-4 text-light">
