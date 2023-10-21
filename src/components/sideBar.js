@@ -8,27 +8,27 @@ const SideBar = ({ show, off }) => {
     {
       title: "Home",
       icon: "",
-      path: "home",
+      path: "/home",
     },
     {
       title: "Services",
       icon: "",
-      path: "services",
+      path: "/services",
     },
     {
       title: "Products",
       icon: "",
-      path: "products",
+      path: "/products",
     },
     {
       title: "About",
       icon: "",
-      path: "about",
+      path: "/about",
     },
     {
       title: "Career In Tech",
       icon: "",
-      path: "career",
+      path: "/career",
     },
   ];
   const navigate = useNavigate();
