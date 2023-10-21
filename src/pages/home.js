@@ -24,7 +24,7 @@ import homeBg from "../assets/images/home-image.png";
 
 import loaderImage from "../assets/images/fshloader.gif";
 
-import { postQuotes } from "../controllers/requests";
+// import { postQuotes } from "../controllers/requests";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../store/slices/authSlice";
@@ -72,14 +72,14 @@ export default function Home() {
     setQuoteModal(true);
   };
 
-  const postUserQuote = async (value) => {
-    const res = await postQuotes(value);
-    if (res?.status == 200) {
-      setQuoteModal(false);
-      setQuoteSucModal(true);
-    }
-  };
-  const [timer, setTimer] = useState(2);
+  // const postUserQuote = async (value) => {
+  //   const res = await postQuotes(value);
+  //   if (res?.status == 200) {
+  //     setQuoteModal(false);
+  //     setQuoteSucModal(true);
+  //   }
+  // };
+  // const [timer, setTimer] = useState(2);
 
   // const handleLoader = () => {
    
