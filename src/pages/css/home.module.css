@@ -1,0 +1,94 @@
+@font-face {
+    font-family: titleFont;
+    src: url('../../assets/fonts/FutuBd.ttf');
+}
+
+@font-face {
+    font-family: titleFontMd;
+    src: url('../../assets/fonts/FutuMd.ttf');
+}
+
+@font-face {
+    font-family: textFont;
+    src: url('../../assets/fonts/timesRomanReg.ttf');
+}
+
+.sideBar {
+    display: none;
+}
+.offSideBar {
+    display: none;
+}
+.toggler {
+    display: none;
+}
+
+.loader{
+display: flex;
+position: absolute;
+top: 0;
+bottom: 0;
+min-height: 100vh;
+}
+
+.offLoader {
+    display: none;
+}
+
+.sectone{
+    background-color: rgb(15, 114, 167);
+    min-height: 70vh;
+    background-image: url('../../assets/images/desktopbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-inline: 5%;
+}
+@media screen and (max-width :568px){
+.container {
+    max-width: 100%;
+    min-width: 100%;
+    overflow-x: hidden;
+}
+
+.sectone{
+    background-color: rgb(15, 114, 167);
+    min-height: 70vh;
+    padding-inline: 3%;
+    background-image: url('../../assets/images/bgImage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.sideBar {
+    font-family: textFont;
+    min-height: 100vh;
+    position: fixed;
+    top:0;
+    background-color:#2AB7C8;
+    z-index: 60;
+    display: flex;
+    transform: translateX(0);
+    transition: all 0.7s ease-in-out;
+}
+
+.sideBar ul li:hover {
+    background-color:#1b96a4;
+}
+.offSideBar {
+    min-height: 100vh;
+    position: fixed;
+    top:0;
+    z-index: 60;
+    display: flex;
+    transition: all 0.7s ease-in-out;
+    transform: translateX(100%);
+    background-color:#2AB7C8;
+}
+
+.toggler {
+    display: flex;
+}
+}
+
+
+

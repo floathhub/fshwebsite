@@ -1,0 +1,128 @@
+@font-face {
+    font-family: titleFont;
+    src: url('../../assets/fonts/FutuBd.ttf');
+}
+
+@font-face {
+    font-family: titleFontMd;
+    src: url('../../assets/fonts/FutuMd.ttf');
+}
+
+@font-face {
+    font-family: textFont;
+    src: url('../../assets/fonts/timesRomanReg.ttf');
+}
+
+.loader {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    min-height: 100vh;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.offLoader {
+    display: none
+}
+
+.content {
+    position: relative;
+    /* Required for positioning child elements */
+    overflow: hidden;
+    /* Hide any overflowing content */
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Send the video background to the back */
+}
+
+.video-container video {
+    object-fit: cover;
+    /* Resize the video to cover the container */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.9;
+}
+
+.overlay {
+    font-family: titleFont;
+    display: flex;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    /* Display content on top of the video */
+}
+
+.serviceSection {
+    flex-wrap: nowrap;
+}
+
+.detailSection{
+    display: flex;
+    width: 100%;
+    /* background-color: pink; */
+    min-height: 300px;
+    flex-wrap: nowrap;
+}
+
+.detailSectionMobile{
+    display: none;
+
+}
+
+.pTitle{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    padding-inline: 2%;
+    width: 50%;
+ }
+
+ .points{
+   
+}
+
+.toggleBurger{
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    .serviceSection {
+        flex-wrap: wrap;
+    }
+
+    .toggleBurger{
+        display: flex;
+    }
+
+    .detailSection{
+        display: none;
+    }
+
+    .detailSection h4{
+       text-align: center;
+       background-color: red;
+       width: 100%;
+    }
+
+    .detailSectionMobile{
+        display: flex;
+        background-color: #f8f8f8;
+    
+    }
+
+    .points{
+        display: none;
+    }
+}
