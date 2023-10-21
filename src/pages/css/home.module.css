@@ -1,17 +1,3 @@
-@font-face {
-    font-family: titleFont;
-    src: url('../../assets/fonts/FutuBd.ttf');
-}
-
-@font-face {
-    font-family: titleFontMd;
-    src: url('../../assets/fonts/FutuMd.ttf');
-}
-
-@font-face {
-    font-family: textFont;
-    src: url('../../assets/fonts/timesRomanReg.ttf');
-}
 
 .sideBar {
     display: none;
@@ -37,6 +23,10 @@ min-height: 100vh;
 
 .offLoader {
     display: none;
+}
+
+.testimonial{
+    background-color: #f9f9f9;
 }
 
 .sectone{

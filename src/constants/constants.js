@@ -1,3 +1,8 @@
+import surplusIcon from '../assets/images/products/surplusLogo.png';
+import OgaselaIcon from '../assets/images/products/ogaselaLogo.png'
+import skolaIcon from '../assets/images/products/skolaLogo.png'
+import instafameIcon from '../assets/images/products/instafameLogo.png'
+
 export const guides =[
     {
         title: "Home",
@@ -25,6 +30,30 @@ export const guides =[
         path: "/career",
       }
 ]
+
+
+export const products = [
+  {
+    icon: surplusIcon,
+    title: "Surplus9ja",
+    path : 'https://surplusfood9ija.vercel.app/'
+  },
+  {
+    icon: OgaselaIcon,
+    title: "Ogasela",
+    path : 'https://ogasela.vercel.app/'
+  },
+  {
+    icon: skolaIcon,
+    title: "Skola",
+    path : 'https://skola9ja.vercel.app/'
+  },
+  {
+    icon: instafameIcon,
+    title: "instafame",
+    path : 'https://surplusfood9ija.vercel.app/'
+  }
+];
 
 
  

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import logo from "../assets/images/floatlogo.png";
 import toggler from "../assets/icons/toggler.png";
@@ -6,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { guides } from "../constants/constants";
 
 const TopBar = ({ toggleMenu }) => {
+  const [toggleSide, setToggleSide] = useState(false);
 
   const currentUrl = window.location.pathname
   

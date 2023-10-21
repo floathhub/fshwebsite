@@ -22,6 +22,7 @@ import softIcon from "../assets/icons/softwareIcon.png";
 import graphIcon from "../assets/icons/designIcon.png";
 import homeBg from "../assets/images/home-image.png";
 
+import { products } from "../constants/constants";
 import loaderImage from "../assets/images/fshloader.gif";
 
 // import { postQuotes } from "../controllers/requests";
@@ -31,31 +32,14 @@ import { updateUser } from "../store/slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/home.css";
 import TopBar from "../components/topBar";
+import PrimaryButton from "../components/buttons/primaryButton";
+import LinkButton from "../components/buttons/linkButton";
 
 export default function Home() {
   const navigate = useNavigate();
   const [toggleSide, setToggleSide] = useState(false);
 
   const services = [
-    {
-      icon: webIcon,
-      title: "Business Websites",
-    },
-    {
-      icon: appIcon,
-      title: "Mobile Application",
-    },
-    {
-      icon: softIcon,
-      title: "Software Solutions",
-    },
-    {
-      icon: graphIcon,
-      title: "Graphics Design",
-    },
-  ];
-
-  const products = [
     {
       icon: webIcon,
       title: "Business Websites",
@@ -221,25 +205,74 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-4 mt-2 p-0 m-0">
+      <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-4 p-0 m-0">
         {products.map((service) => (
           <div
-            className="border d-flex flex-column justify-content-center gap-2 m-0 p-0 bor"
+            className="d-flex flex-column justify-content-center gap-2 m-0 p-0"
             style={{ minWidth: "150px", minHeight: "180px" }}
           >
             <div>
-              <img src={service.icon} height={"100em"} alt="web icon" />
+              <img src={service.icon} height={"50em"} alt="web icon" />
             </div>
             <div>
-              <p className="" style={{ fontFamily: "textFont" }}>
-                {service.title}
-              </p>
+              <LinkButton
+                to={service.path}
+                disable={service.title == "instafame"}
+                title="Demo"
+              />
             </div>
           </div>
         ))}
       </div>
 
-      <div className="footer w-100 text-center text-align-center py-3 bg-secondary mt-4 text-light">
+      <div
+        className={`${styles.testimonial} d-flex justify-content-center flex-column align-items-center py-3 w-100`}
+        style={{ fontFamily: "textFont", minHeight: "300px" }}
+      >
+        <h3 className="text-center w-75 fontweight-bold m-0 p-0">
+          Join the list of our successful business owners who trust us for all
+          their business needs.
+        </h3>
+
+        <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-2 p-0 m-0">
+          {services.map((service) => (
+            <div
+              className="border rounded-4 d-flex flex-column justify-content-center gap-3 m-0 p-0 mt-5 px-2"
+              style={{ minWidth: "60px", minHeight: "90px" }}
+            >
+              <div>
+                <img src={service.icon} height={"70em"} alt="web icon" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={`${styles.testimonial} d-flex justify-content-center flex-column align-items-center py-3 w-100 px-2`}
+        style={{ fontFamily: "textFont", minHeight: "300px" }}
+      >
+        <h5 className="text-center w-100 fontweight-bold">
+          Not just our words but by our works.
+        </h5>
+
+        <div
+          className="serviceSection  rounded rounded-3 w-100 d-flex px-2 justify-content-center text-center gap-4 p-2 m-0"
+          style={{ minWidth: "350px", maxWidth: "350px", minHeight: "150px" }}
+        >
+          <iframe
+            className="rounded rounded-3"
+            width="560"
+            src="https://www.youtube.com/embed/xpvWA3ABUfI?si=KSugFJB6Har_PwZ2"
+            title="Review"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <div className="footer w-100 text-center text-align-center py-3 bg-secondary mt-4 text-light" style={{fontFamily:'textFont'}}>
         <p className="p-0 m-0">Floath Solution Hub All Right Reserved</p>
         <p className="p-0 m-0">(+234)8166064166</p>
       </div>
