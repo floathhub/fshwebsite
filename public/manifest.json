@@ -1,35 +1,19 @@
 {
-<<<<<<< HEAD
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-=======
   "short_name": "FSH",
   "name": "Floath Solution Hub",
   "icons": [
     {
       "src": "fav.png",
->>>>>>> fa0dfd455c353303261530958d73826b0cd3423d
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-<<<<<<< HEAD
-      "src": "logo192.png",
-=======
       "src": "fav.png",
->>>>>>> fa0dfd455c353303261530958d73826b0cd3423d
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-<<<<<<< HEAD
-      "src": "logo512.png",
-=======
       "src": "fav.png",
->>>>>>> fa0dfd455c353303261530958d73826b0cd3423d
       "type": "image/png",
       "sizes": "512x512"
     }
