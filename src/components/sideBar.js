@@ -1,36 +1,12 @@
 import { Button, Col, Row } from "react-bootstrap";
 import logo from "../assets/images/floatlogo.png";
 import styles from "../pages/css/home.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { guides } from "../constants/constants";
 
 const SideBar = ({ show, off }) => {
-  const guides = [
-    {
-      title: "Home",
-      icon: "",
-      path: "/home",
-    },
-    {
-      title: "Services",
-      icon: "",
-      path: "/services",
-    },
-    {
-      title: "Products",
-      icon: "",
-      path: "/products",
-    },
-    {
-      title: "About",
-      icon: "",
-      path: "/about",
-    },
-    {
-      title: "Career In Tech",
-      icon: "",
-      path: "/career",
-    },
-  ];
+  const currentUrl = window.location.pathname;
+
   const navigate = useNavigate();
   return (
     <div
@@ -52,18 +28,17 @@ const SideBar = ({ show, off }) => {
         {" "}
         {guides.map((guide) => (
           <li
-          onClick={()=>{
-            off();
-            navigate(guide.path)
+            onClick={() => {
+              off();
+              navigate(guide.path);
             }}
             className="d-flex w-100 text-center justify-content-center align-items-center"
-            style={{ minHeight: "3em", cursor:'pointer' }}
+            style={{ minHeight: "3em", cursor: "pointer" }}
           >
             <a
-              
               style={{
                 textDecoration: "none",
-                color: "#fff",
+                color: currentUrl == guide.path && "#2AB7C8",
               }}
             >
               {guide.title}
@@ -72,11 +47,14 @@ const SideBar = ({ show, off }) => {
         ))}
       </ul>
       <div className="d-flex justify-content-center mt-4">
-        <Button
-          variant="secondary"
-          style={{ maxWidth: "10em", fontFamily: "textFont" }}
-        >
-          Contact us
+        <Button style={{ maxWidth: "10em" }}>
+          <Link
+            to="https://wa.me/message/NSIQY7RHQ2W4C1"
+            className="text-secondary"
+            style={{ textDecoration: "none", fontFamily: "titleFont" }}
+          >
+            Contact us
+          </Link>
         </Button>
       </div>
     </div>
