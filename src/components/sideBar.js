@@ -8,27 +8,27 @@ const SideBar = ({ show, off }) => {
     {
       title: "Home",
       icon: "",
-      path: "home",
+      path: "/home",
     },
     {
       title: "Services",
       icon: "",
-      path: "services",
+      path: "/services",
     },
     {
       title: "Products",
       icon: "",
-      path: "products",
+      path: "/products",
     },
     {
       title: "About",
       icon: "",
-      path: "about",
+      path: "/about",
     },
     {
       title: "Career In Tech",
       icon: "",
-      path: "career",
+      path: "/career",
     },
   ];
   const navigate = useNavigate();
@@ -53,13 +53,14 @@ const SideBar = ({ show, off }) => {
         {guides.map((guide) => (
           <li
           onClick={()=>{
-            off()
+            off();
+            navigate(guide.path)
             }}
             className="d-flex w-100 text-center justify-content-center align-items-center"
-            style={{ minHeight: "3em" }}
+            style={{ minHeight: "3em", cursor:'pointer' }}
           >
             <a
-              href={guide.path}
+              
               style={{
                 textDecoration: "none",
                 color: "#fff",
