@@ -2,7 +2,7 @@ import React from "react";
 import style from "./inputfield.module.css";
 import { FormControl, FormGroup, FormLabel } from "react-bootstrap";
 
-export default function InputFieldNumber({
+export default function InputFieldEmail({
   icon,
   title,
   placeholder,
@@ -18,8 +18,7 @@ export default function InputFieldNumber({
           className="rounded rounded-1 m-0"
           onChange={(e) => passInput(e.target.value)}
           style={{ color: "#5a5a5a", minWidth: "15em" }}
-          type="number"
-          placeholder={placeholder}
+          type="email"
         />
       </FormGroup>
     </div>

@@ -55,8 +55,8 @@ export default function ConstructionPage() {
       <TopBar  toggleMenu={() => setToggleSide(!toggleSide)}  />
       <SideBar show={toggleSide} off={() => setToggleSide(!toggleSide)} />
       <div className="d-flex flex-column align-items-center w-100">
-        <img src={constctnImg} height={"400px"} alt="error image" />
-        <p>Only Career page and Home Page is available for now</p>
+        <img src={constctnImg} height={"250px"} alt="error image" />
+        <p className="text-center">Only Career page and Home Page <br/> is available for now</p>
         <Button
           onClick={() => navigate("/home")}
           className="text-light mt-3"

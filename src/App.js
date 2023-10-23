@@ -7,6 +7,8 @@ import CareerPage from "./pages/career/career";
 import LoaderPage from "./components/loaderPage";
 import ErrorPage from "./pages/errorPage";
 import ConstructionPage from "./pages/constructionPage";
+import ServicePage from "./pages/servicePage";
+import AServicePage from "./pages/servicePagee";
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         <Route path="/services" element={<ConstructionPage/>} />
         <Route path="/products" element={<ConstructionPage/>} />
         <Route path="/about" element={<ConstructionPage/>} />
+        <Route path="/service/:id" element={<ServicePage/>}/>
         {/* <Route path="/ideas" element={<IdeasPage />} />
         <Route path="/about" element={<About />} /> */}
       </Routes>

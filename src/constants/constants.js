@@ -55,5 +55,50 @@ export const products = [
   }
 ];
 
+export const serviceList = [
+  {
+    id: 'fshserv021101',
+    val:'app',
+    icon: surplusIcon,
+    title: "Mobile App",
+    path : 'https://surplusfood9ija.vercel.app/'
+  },
+  {
+    id: 'fshserv021201',
+    val:'website',
+    icon: OgaselaIcon,
+    title: "Business Website",
+    path : 'https://ogasela.vercel.app/'
+  },
+  {
+    id: 'fshserv021301',
+    val:'software',
+    icon: skolaIcon,
+    title: "Software Solution",
+    path : 'https://skola9ja.vercel.app/'
+  },
+  {
+    id: 'fshserv021401',
+    val:'design',
+    icon: instafameIcon,
+    title: "Graphics Design",
+    path : 'https://surplusfood9ija.vercel.app/'
+  },
+  {
+    id: 'fshserv021501',
+    val:'consultation',
+    icon: instafameIcon,
+    title: "Consultation",
+    path : 'https://surplusfood9ija.vercel.app/'
+  },
+  {
+    id: 'fshserv021601',
+    val:'training',
+    icon: instafameIcon,
+    title: "Career Training",
+    path : 'https://surplusfood9ija.vercel.app/'
+  }
+];
+
 
  

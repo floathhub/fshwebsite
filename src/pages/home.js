@@ -34,10 +34,12 @@ import "./css/home.css";
 import TopBar from "../components/topBar";
 import PrimaryButton from "../components/buttons/primaryButton";
 import LinkButton from "../components/buttons/linkButton";
+import QuoteModal from "../components/modal/quoteModal";
 
 export default function Home() {
   const navigate = useNavigate();
   const [toggleSide, setToggleSide] = useState(false);
+  const [quoteModal, setQuoteModal] = useState(false);
 
   const services = [
     {
@@ -59,7 +61,7 @@ export default function Home() {
   ];
 
   const [nav, setNav] = useState(false);
-  const [quoteModal, setQuoteModal] = useState(false);
+
   const [quoteSucModal, setQuoteSucModal] = useState(false);
   const loggedInUser = useSelector((state) => state.auth.userInfo);
   const [showLoader, setShowLoader] = useState(true);
@@ -116,6 +118,7 @@ export default function Home() {
 
       <TopBar toggleMenu={() => setToggleSide(!toggleSide)} />
       <SideBar show={toggleSide} off={() => setToggleSide(!toggleSide)} />
+      <QuoteModal on={quoteModal} toggle={() => setQuoteModal(!quoteModal)} />
 
       <div
         className={`${styles.sectone} text-light d-flex flex-column justify-content-center`}
@@ -127,14 +130,13 @@ export default function Home() {
           Get custom made solutions that <br /> effectively solves your <br />{" "}
           business need.
         </p>
-        <Button style={{ maxWidth: "10em" }}>
-          <Link
-            to="https://wa.me/message/NSIQY7RHQ2W4C1"
-            className="text-secondary"
-            style={{ textDecoration: "none", fontFamily: "titleFont" }}
-          >
-            Contact us
-          </Link>
+        <Button
+          onClick={() => setQuoteModal(true)}
+          style={{ 
+            maxWidth: "10em", 
+            fontFamily: "titleFontMd" }}
+        >
+          Request Quote
         </Button>
       </div>
       <div className="w-100 px-3 text-center mt-5">
@@ -151,8 +153,9 @@ export default function Home() {
         <h3 style={{ fontFamily: "titleFontMd" }}>Our Services</h3>
       </div>
       <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-4 mt-4 p-0 m-0">
-        {services.map((service) => (
+        {services.map((service, index) => (
           <div
+          key={index}
             className="border d-flex flex-column justify-content-center gap-2 m-0 p-0 bor"
             style={{ minWidth: "150px", minHeight: "180px" }}
           >
@@ -206,8 +209,9 @@ export default function Home() {
       </div>
 
       <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-4 p-0 m-0">
-        {products.map((service) => (
+        {products.map((service, index) => (
           <div
+          key={index}
             className="d-flex flex-column justify-content-center gap-2 m-0 p-0"
             style={{ minWidth: "150px", minHeight: "180px" }}
           >
@@ -235,8 +239,9 @@ export default function Home() {
         </h3>
 
         <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-2 p-0 m-0">
-          {services.map((service) => (
+          {services.map((service,index) => (
             <div
+            key={index}
               className="border rounded-4 d-flex flex-column justify-content-center gap-3 m-0 p-0 mt-5 px-2"
               style={{ minWidth: "60px", minHeight: "90px" }}
             >
@@ -265,14 +270,16 @@ export default function Home() {
             width="560"
             src="https://www.youtube.com/embed/xpvWA3ABUfI?si=KSugFJB6Har_PwZ2"
             title="Review"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       </div>
 
-      <div className="footer w-100 text-center text-align-center py-3 bg-secondary mt-4 text-light" style={{fontFamily:'textFont'}}>
+      <div
+        className="footer w-100 text-center text-align-center py-3 bg-secondary mt-4 text-light"
+        style={{ fontFamily: "textFont" }}
+      >
         <p className="p-0 m-0">Floath Solution Hub All Right Reserved</p>
         <p className="p-0 m-0">(+234)8166064166</p>
       </div>

@@ -19,6 +19,7 @@ export default function InputField({
         onChange={(e)=>passInput(e.target.value)}
         style={{color:'#5a5a5a',minWidth:'15em'}}
         type="text"
+        placeholder={placeholder}
         />
       </FormGroup>
     </div>

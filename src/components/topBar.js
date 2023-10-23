@@ -20,8 +20,9 @@ const TopBar = ({ toggleMenu }) => {
       <img src={logo} height="50em" alt="logo" onClick={()=>navigate('/home')} style={{cursor:'pointer'}}/>
 
       <ul className={`${styles.desktopNav} text-light gap-4 text-dark mx-4`} style={{ cursor: "pointer", fontFamily:'textFont'}}>
-        {guides.map((guide) => (
+        {guides.map((guide,index) => (
           <p 
+          key={index}
           className="m-0 p-0"
           style={{color:currentUrl == guide.path && '#2AB7C8'}}
           onClick={()=>navigate(guide.path)}>{guide?.title}</p>

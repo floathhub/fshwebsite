@@ -26,8 +26,9 @@ const SideBar = ({ show, off }) => {
         style={{ listStyle: "none", fontFamily: "textFont" }}
       >
         {" "}
-        {guides.map((guide) => (
+        {guides.map((guide,index) => (
           <li
+          key={index}
             onClick={() => {
               off();
               navigate(guide.path);

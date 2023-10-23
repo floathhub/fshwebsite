@@ -2,7 +2,7 @@ import React from "react";
 import style from "./inputfield.module.css";
 import { FormControl, FormGroup, FormLabel } from "react-bootstrap";
 
-export default function InputFieldNumber({
+export default function TextAreaField({
   icon,
   title,
   placeholder,
@@ -14,13 +14,19 @@ export default function InputFieldNumber({
     <div className="d-flex">
       <FormGroup style={{ fontFamily: "textFont", color: "#5a5a5a" }}>
         <FormLabel className="p-0 m-0">{title}</FormLabel>
-        <FormControl
+        {/* <FormControl
           className="rounded rounded-1 m-0"
           onChange={(e) => passInput(e.target.value)}
+          
+          type="textarea"
+        /> */}
+
+        <textarea
+          className="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
           style={{ color: "#5a5a5a", minWidth: "15em" }}
-          type="number"
-          placeholder={placeholder}
-        />
+        ></textarea>
       </FormGroup>
     </div>
   );
