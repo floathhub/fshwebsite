@@ -1,8 +1,6 @@
 import logo from "./logo.svg";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
-import About from "./pages/about";
-import IdeasPage from "./pages/ideasPage";
 import CareerPage from "./pages/career/career";
 import LoaderPage from "./components/loaderPage";
 import ErrorPage from "./pages/errorPage";

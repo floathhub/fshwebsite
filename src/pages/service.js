@@ -14,10 +14,8 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../store/slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
-import "./css/home.css";
 import TopBar from "../components/topBar";
 import PrimaryButton from "../components/buttons/primaryButton";
-import LinkButton from "../components/buttons/linkButton";
 import QuoteModal from "../components/modal/quoteModal";
 
 export default function ServicePage() {
@@ -59,7 +57,7 @@ export default function ServicePage() {
   }
 
   return (
-    <div className="w-100" style={{ fontFamily: "textFont" }}>
+    <div style={{ fontFamily: "textFont" }}>
       <TopBar toggleMenu={() => setToggleSide(!toggleSide)} />
       <SideBar show={toggleSide} off={() => setToggleSide(!toggleSide)} />
       <QuoteModal on={quoteModal} toggle={() => setQuoteModal(!quoteModal)} />
@@ -78,8 +76,8 @@ export default function ServicePage() {
         
       >
         <div className="text-center mt-3 px-2">
-          Kindly fill the form below so we understand your intensions better and{" "}
-          <br /> get to know you.
+          Kindly fill the form below so we understand your <br /> intensions better and{" "}
+           get to know you.
         </div>
       </div>
       <div className="w-100 d-flex justify-content-center">
@@ -117,6 +115,8 @@ export default function ServicePage() {
           <PrimaryButton buttonType='submit' title="Submit" />
         </Form>
       </div>
+
+      
       <div className="mt-3">
 
       </div>
