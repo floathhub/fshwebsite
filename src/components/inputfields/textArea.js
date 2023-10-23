@@ -22,6 +22,7 @@ export default function TextAreaField({
         /> */}
 
         <textarea
+          onChange={(e) => passInput(e.target.value)}
           className="form-control"
           id="exampleFormControlTextarea1"
           rows="3"

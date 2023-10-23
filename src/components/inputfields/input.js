@@ -14,7 +14,8 @@ export default function InputField({
     <div className="d-flex">
       <FormGroup style={{fontFamily:'textFont',color:'#5a5a5a'}}>
         <FormLabel className="p-0 m-0">{title}</FormLabel>
-        <FormControl 
+        <FormControl
+        autoCapitalize=""
         className="rounded rounded-1 m-0" 
         onChange={(e)=>passInput(e.target.value)}
         style={{color:'#5a5a5a',minWidth:'15em'}}

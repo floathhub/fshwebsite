@@ -7,8 +7,8 @@ import CareerPage from "./pages/career/career";
 import LoaderPage from "./components/loaderPage";
 import ErrorPage from "./pages/errorPage";
 import ConstructionPage from "./pages/constructionPage";
-import ServicePage from "./pages/servicePage";
-import AServicePage from "./pages/servicePagee";
+import ServicePage from "./pages/service";
+
 
 function App() {
   return (
