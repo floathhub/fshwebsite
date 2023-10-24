@@ -275,7 +275,7 @@ export default function Home() {
           their business needs.
         </h3>
 
-        <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-3 p-0 m-0">
+        <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-2 p-0 m-0">
           {clients.map((service, index) => (
             <div
               key={index}
