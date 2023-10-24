@@ -21,6 +21,12 @@ import appIcon from "../assets/icons/googlePlayIcon.png";
 import softIcon from "../assets/icons/softwareIcon.png";
 import graphIcon from "../assets/icons/designIcon.png";
 import homeBg from "../assets/images/home-image.png";
+import orangeWoman from "../assets/images/orangeWoman.jpg";
+
+import fbLogo from "../assets/images/facebooklogo.png"
+import natLogo from "../assets/images/natcoLogo.png"
+import ggLogo from "../assets/images/googleLogo.png"
+import nfLogo from "../assets/images/netflixLogo.png"
 
 import { products } from "../constants/constants";
 import loaderImage from "../assets/images/fshloader.gif";
@@ -56,6 +62,26 @@ export default function Home() {
     },
     {
       icon: graphIcon,
+      title: "Graphics Design",
+    },
+  ];
+
+
+  const clients = [
+    {
+      icon: natLogo,
+      title: "Business Websites",
+    },
+    {
+      icon: nfLogo,
+      title: "Mobile Application",
+    },
+    {
+      icon: ggLogo,
+      title: "Software Solutions",
+    },
+    {
+      icon: fbLogo,
       title: "Graphics Design",
     },
   ];
@@ -132,15 +158,16 @@ export default function Home() {
         </p>
         <Button
           onClick={() => setQuoteModal(true)}
-          style={{ 
-            maxWidth: "10em", 
-            fontFamily: "titleFontMd" }}
+          style={{
+            maxWidth: "10em",
+            fontFamily: "titleFontMd",
+          }}
         >
           Request Quote
         </Button>
       </div>
       <div className="w-100 px-3 text-center mt-5">
-        <h3 style={{ fontFamily: "titleFontMd" }}>
+        <h3 style={{ fontFamily: "titleFontMd", fontSize:'30px', fontWeight:'800' }}>
           We take out the bottle necks <br /> so you can focus on other <br />{" "}
           business matter.
         </h3>
@@ -155,7 +182,7 @@ export default function Home() {
       <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-4 mt-4 p-0 m-0">
         {services.map((service, index) => (
           <div
-          key={index}
+            key={index}
             className="border d-flex flex-column justify-content-center gap-2 m-0 p-0 bor"
             style={{ minWidth: "150px", minHeight: "180px" }}
           >
@@ -171,14 +198,24 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="detailSection justify-content-center align-items-center w-100 px-2 gap-4 mt-5 p-0 m-0">
-        <div className="w-50 d-flex flex-column align-items-end px-3">
-          <h4 style={{ fontFamily: "titleFontMd" }}>
+      <div
+        className="detailSection py-3 justify-content-center align-items-center w-100 px-2 gap-4 mt-5 p-0 m-0"
+        style={{ fontFamily: "textFont" }}
+      >
+        <div className="w-75 d-flex flex-column align-items-end">
+          <h4
+            className="w-75"
+            style={{
+              fontFamily: "titleFontMd",
+              fontWeight: "700",
+              fontSize: "30px",
+            }}
+          >
             We do not beat around the bush with <br /> technical jargons, we
             simply identify <br />
             your business problem <br /> & we fix it.
           </h4>
-          <ul className="mt-4">
+          <ul className="mt-1 w-75">
             <li>Identify your need.</li>
             <li>Carry out extensive research.</li>
             <li>Provide scalable solutions.</li>
@@ -186,8 +223,8 @@ export default function Home() {
             <li>Offer continuous business support</li>
           </ul>
         </div>
-        <div className="w-50 d-flex align-items-center">
-          <img src={homeBg} alt="homeimage" height={350} />
+        <div className="w-50">
+          <img src={orangeWoman} alt="homeimage" height={350} />
         </div>
       </div>
 
@@ -211,7 +248,7 @@ export default function Home() {
       <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-4 p-0 m-0">
         {products.map((service, index) => (
           <div
-          key={index}
+            key={index}
             className="d-flex flex-column justify-content-center gap-2 m-0 p-0"
             style={{ minWidth: "150px", minHeight: "180px" }}
           >
@@ -234,14 +271,14 @@ export default function Home() {
         style={{ fontFamily: "textFont", minHeight: "300px" }}
       >
         <h3 className="text-center w-75 fontweight-bold m-0 p-0">
-          Join the list of our successful business owners who trust us for all
+          Join the list of our successful business owners <br/> who trust us for all
           their business needs.
         </h3>
 
-        <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-2 p-0 m-0">
-          {services.map((service,index) => (
+        <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-3 p-0 m-0">
+          {clients.map((service, index) => (
             <div
-            key={index}
+              key={index}
               className="border rounded-4 d-flex flex-column justify-content-center gap-3 m-0 p-0 mt-5 px-2"
               style={{ minWidth: "60px", minHeight: "90px" }}
             >

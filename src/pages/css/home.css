@@ -54,10 +54,10 @@
     flex-wrap: nowrap;
 }
 
-.detailSection {
+.detailSection  {
     display: flex;
     width: 100%;
-    /* background-color: pink; */
+    background-color: #e2fafc;
     min-height: 300px;
     flex-wrap: nowrap;
 }

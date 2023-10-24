@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 
 export default function LinkButton({title,action,disable, to}){
     return(
-        <a href={to} target="_">
+        <a href={disable? null :to} target="_">
         <Button 
         onClick={action}
         disabled={disable}
