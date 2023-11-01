@@ -7,7 +7,7 @@ export const guides =[
     {
         title: "Home",
         icon: "",
-        path: "/home",
+        path: "/",
       },
       {
         title: "Our Services",

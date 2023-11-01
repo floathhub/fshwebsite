@@ -22,17 +22,21 @@ $secondary : #192252;
 @font-face {
     font-family: titleFontMd;
     src: url('./assets/fonts/FutuMd.ttf');
-};
+}
+
+;
 
 @font-face {
     font-family: textFont;
     src: url('./assets/fonts/timesRomanReg.ttf');
-};
+}
+
+;
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 
@@ -48,4 +52,15 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
-  }
+}
+
+.Toastify__toast-container {
+    top: 50px;
+    /* Adjust the top position as needed */
+    right: 50px;
+    /* Adjust the right position as needed */
+}
+
+.Toastify__toast {
+    /* Custom styles for individual toasts */
+}

@@ -17,7 +17,7 @@ const TopBar = ({ toggleMenu }) => {
       className="navbar sticky-top bg-light shadow-sm p-3 px-4"
       style={{ zIndex: 50 }}
     >
-      <img src={logo} height="50em" alt="logo" onClick={()=>navigate('/home')} style={{cursor:'pointer'}}/>
+      <img src={logo} height="50em" alt="logo" onClick={()=>navigate('/')} style={{cursor:'pointer'}}/>
 
       <ul className={`${styles.desktopNav} text-light gap-4 text-dark mx-4`} style={{ cursor: "pointer", fontFamily:'textFont'}}>
         {guides.map((guide,index) => (

@@ -12,10 +12,8 @@ import {
 
 import styles from "./css/home.module.css";
 import SideBar from "../components/sideBar";
+import { toast } from 'react-toastify';
 
-import homeVid from "../assets/videos/homeBgVid.webm";
-import logo from "../assets/images/floatlogo.png";
-import toggler from "../assets/icons/toggler.png";
 import webIcon from "../assets/icons/webIcon.png";
 import appIcon from "../assets/icons/googlePlayIcon.png";
 import softIcon from "../assets/icons/softwareIcon.png";
@@ -23,10 +21,10 @@ import graphIcon from "../assets/icons/designIcon.png";
 import homeBg from "../assets/images/home-image.png";
 import orangeWoman from "../assets/images/orangeWoman.jpg";
 
-import fbLogo from "../assets/images/facebooklogo.png"
-import natLogo from "../assets/images/natcoLogo.png"
-import ggLogo from "../assets/images/googleLogo.png"
-import nfLogo from "../assets/images/netflixLogo.png"
+import fbLogo from "../assets/images/facebooklogo.png";
+import natLogo from "../assets/images/natcoLogo.png";
+import ggLogo from "../assets/images/googleLogo.png";
+import nfLogo from "../assets/images/netflixLogo.png";
 
 import { products } from "../constants/constants";
 import loaderImage from "../assets/images/fshloader.gif";
@@ -34,7 +32,6 @@ import loaderImage from "../assets/images/fshloader.gif";
 // import { postQuotes } from "../controllers/requests";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { updateUser } from "../store/slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/home.css";
 import TopBar from "../components/topBar";
@@ -42,10 +39,16 @@ import PrimaryButton from "../components/buttons/primaryButton";
 import LinkButton from "../components/buttons/linkButton";
 import QuoteModal from "../components/modal/quoteModal";
 
+import { getAllService } from "../controllers/serviceApi";
+import Loader from "../components/loader";
+
 export default function Home() {
   const navigate = useNavigate();
   const [toggleSide, setToggleSide] = useState(false);
   const [quoteModal, setQuoteModal] = useState(false);
+  const [loading, setLoading] =useState(false);
+
+  const [refresh, setRefresh] =useState(false);
 
   const services = [
     {
@@ -65,7 +68,6 @@ export default function Home() {
       title: "Graphics Design",
     },
   ];
-
 
   const clients = [
     {
@@ -88,11 +90,6 @@ export default function Home() {
 
   const [nav, setNav] = useState(false);
 
-  const [quoteSucModal, setQuoteSucModal] = useState(false);
-  const loggedInUser = useSelector((state) => state.auth.userInfo);
-  const [showLoader, setShowLoader] = useState(true);
-  const [stopLoader, setStopLoader] = useState(false);
-
   const dispatch = useDispatch();
 
   const handleMenu = () => {
@@ -112,35 +109,28 @@ export default function Home() {
   // };
   // const [timer, setTimer] = useState(2);
 
-  // const handleLoader = () => {
-
-  //     const countDown = setInterval(() => {
-  //       if (timer > 0) {
-  //         setTimer(timer - 1);
-  //       } else {
-  //         clearInterval(countDown);
-  //         setShowLoader(false);
-  //       }
-  //     }, 1000);
-  //   }
-  // ;
-
-  // useEffect(() => {
-  //   handleLoader();
-  // });
+  const handleGetServices = async () => {
+    setLoading(true);
+   try {
+    const res = await getAllService();
+    // console.log(res)
+    if(res?.data?.data?.success){
+      setLoading(false);
+    } 
+    // console.log(res);
+   } catch (error) {
+    
+   }
+  };
+  useEffect(() => {
+    handleGetServices();
+  },[refresh]);
 
   return (
     <div className="w-100">
-      {/* <div className="navbar sticky-top bg-light shadow-sm p-3 px-4" style={{zIndex:50}}>
-        <img src={logo} height="50em" alt="logo" />
-        <img
-        onClick={()=>setToggleSide(!toggleSide)}
-          className="toggleBurger"
-          src={toggler}
-          height="15em"
-          alt="toggle"
-        />
-      </div> */}
+      {
+        loading? <Loader/> :
+        <>
 
       <TopBar toggleMenu={() => setToggleSide(!toggleSide)} />
       <SideBar show={toggleSide} off={() => setToggleSide(!toggleSide)} />
@@ -167,7 +157,13 @@ export default function Home() {
         </Button>
       </div>
       <div className="w-100 px-3 text-center mt-5">
-        <h3 style={{ fontFamily: "titleFontMd", fontSize:'30px', fontWeight:'800' }}>
+        <h3
+          style={{
+            fontFamily: "titleFontMd",
+            fontSize: "30px",
+            fontWeight: "800",
+          }}
+        >
           We take out the bottle necks <br /> so you can focus on other <br />{" "}
           business matter.
         </h3>
@@ -271,8 +267,8 @@ export default function Home() {
         style={{ fontFamily: "textFont", minHeight: "300px" }}
       >
         <h3 className="text-center w-75 fontweight-bold m-0 p-0">
-          Join the list of our successful business owners <br/> who trust us for all
-          their business needs.
+          Join the list of our successful business owners <br /> who trust us
+          for all their business needs.
         </h3>
 
         <div className="serviceSection w-100 d-flex px-2 justify-content-center text-center gap-2 p-0 m-0">
@@ -320,6 +316,9 @@ export default function Home() {
         <p className="p-0 m-0">Floath Solution Hub All Right Reserved</p>
         <p className="p-0 m-0">(+234)8166064166</p>
       </div>
+    
+        </>
+      }
     </div>
   );
 }
