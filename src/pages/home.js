@@ -124,9 +124,9 @@ export default function Home() {
     
    }
   };
-  useEffect(() => {
-    handleGetServices();
-  },[refresh]);
+  // useEffect(() => {
+  //   handleGetServices();
+  // },[refresh]);
 
   return (
     <div className="w-100">
