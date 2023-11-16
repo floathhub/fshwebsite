@@ -50,7 +50,7 @@ export default function ErrorPage() {
     <div className=" d-flex flex-column align-items-center min-vh-100 justify-content-center w-100" style={{fontFamily:'textFont'}}>
       <img src={fshErrorImg} height={'300px'} alt="error image"/>
       <h3>You hit a wrong route</h3>
-      <Button onClick={()=>navigate('/home')} className="text-light">Go Back Home</Button>
+      <Button onClick={()=>navigate('/')} className="text-light">Go Back Home</Button>
     </div>
   );
 }

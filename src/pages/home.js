@@ -116,7 +116,9 @@ export default function Home() {
     // console.log(res)
     if(res?.data?.data?.success){
       setLoading(false);
-    } 
+    }  else{
+      setLoading(true);
+    }
     // console.log(res);
    } catch (error) {
     
@@ -128,14 +130,9 @@ export default function Home() {
 
   return (
     <div className="w-100">
-      {
-        loading? <Loader/> :
-        <>
-
       <TopBar toggleMenu={() => setToggleSide(!toggleSide)} />
       <SideBar show={toggleSide} off={() => setToggleSide(!toggleSide)} />
       <QuoteModal on={quoteModal} toggle={() => setQuoteModal(!quoteModal)} />
-
       <div
         className={`${styles.sectone} text-light d-flex flex-column justify-content-center`}
       >
@@ -160,7 +157,7 @@ export default function Home() {
         <h3
           style={{
             fontFamily: "titleFontMd",
-            fontSize: "30px",
+            fontSize: "25px",
             fontWeight: "800",
           }}
         >
@@ -316,9 +313,6 @@ export default function Home() {
         <p className="p-0 m-0">Floath Solution Hub All Right Reserved</p>
         <p className="p-0 m-0">(+234)8166064166</p>
       </div>
-    
-        </>
-      }
     </div>
   );
 }
