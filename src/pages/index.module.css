@@ -1,0 +1,24 @@
+.jumbotron {
+    background-image: url('../assets/images/bgImage.jpg');
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+   height: 75vh;
+    
+  }
+
+  .card{
+    background-image: url('../assets/images/woman-phone.jpg');
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+    border-radius: 15px;
+   height: 420px;
+  }
+
+  .card2{
+    background-image: url('../assets/images/computerman.jpg');
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+    border-radius: 15px;
+   height: 420px;
+  }

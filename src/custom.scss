@@ -1,0 +1,267 @@
+// custom.scss
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.poppins-medium-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.poppins-semibold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.poppins-bold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+$primary: #2AB7C8; // Primary color
+$secondary: #192252; // Secondary color
+$body-bg: #f8f9fa; // Body background color
+$font-family-base: 'Arial', sans-serif; // Custom font
+
+
+@keyframes moveDiv {
+    0% {
+        right: -5%;
+    }
+
+    // 50% { right: 200px; }
+    100% {
+        right: 0%;
+    }
+}
+
+.body {
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+}
+
+p {
+    font-family: "lato-regular", sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    color: #535353;
+}
+
+.headers {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-size: 35px;
+}
+
+.title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.form-control-outline {
+    border: 2px solid var(--bs-primary);
+    /* Use Bootstrap's primary color variable */
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control-outline:focus {
+    border-color: var(--bs-primary);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #4a91e269;
+    /* Primary color shadow */
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+// input[type='number'] {
+//     -moz-appearance: textfield;
+// }
+
+.slide-form {
+    position: relative;
+    animation: moveDiv 0.5s;
+}
+
+@media (max-width: 576px) {
+    .slide-form {
+        position: relative;
+        animation: moveDiv 0.5s;
+    }
+
+    .slide-form .card {
+        // position: relative;
+        animation: moveDiv 0.5s;
+    }
+
+    .niramit-regular {
+        font-family: "Niramit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .niramit-medium {
+        font-family: "Niramit", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    .niramit-semibold {
+        font-family: "Niramit", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    .niramit-bold {
+        font-family: "Niramit", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    p {
+        font-family: "lato-regular", sans-serif;
+        font-size: 0.9rem, 1rem;
+        font-weight: 400;
+    }
+
+    h3 {
+        font-family: "Niramit", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .card {
+        width: 50px;
+    }
+}
+
+// .available-services {
+//   background-color: rgb(221, 0, 37)
+// }
+
+
+.available-services .service-holder {
+    min-width: 90%;
+    justify-content: space-evenly;
+    // background-color: rgb(248, 65, 96)
+}
+
+.available-services .service-holder {
+    min-width: 90%;
+    justify-content: space-evenly;
+    // background-color: rgb(248, 65, 96)
+}
+
+.available-services .service-holder .card-holder {
+    min-width: 15%;
+    justify-content: space-evenly;
+    // background-color: rgb(65, 248, 108)
+}
+
+@media (max-width: 576px) {}
+
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
